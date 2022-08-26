@@ -56,7 +56,7 @@ $(document).ready(function(){
 			var fd = new FormData(formNm[0]);
 			$.ajax({
 					type: "POST",
-					url: '/Choicie/mail.php',
+					url: '/mail.php',
 					data: fd,
 					processData: false,
 					contentType: false, 
