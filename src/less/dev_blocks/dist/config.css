@@ -281,6 +281,10 @@ img {
 .btn.accent_yellow.disable.dot::before {
   background-color: #F2CF7E;
 }
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
 .js-scroll {
   opacity: 0;
   transition: opacity 500ms;

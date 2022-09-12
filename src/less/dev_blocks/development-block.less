@@ -1,0 +1,258 @@
+.development-block{
+  padding-bottom: 78px;
+  .title{
+    line-height: 1.44;
+    margin-bottom: 23px;
+    &.small{
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+  }
+  p{
+    margin-bottom: 104px;
+  }
+  .list{
+    max-width: 80%;
+    margin-bottom: 47px;
+    &__item{
+      display: flex;
+      align-items: center;
+      margin-right: 53px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      font-weight: 600;
+      color: @accent_black;
+      svg{
+        margin-right: 24px;
+      }
+    }
+  }
+  .btn{
+    height: 64px;
+    min-width: 370px;
+  }
+  .container{
+    position: relative;
+    z-index: 3;
+  }
+  &>svg{
+    position: relative;
+    z-index: 1;
+    margin-top: -251px;
+    max-width: 100%;
+    height: auto;
+  }
+  .mob-svg{
+    display: none;
+  }
+  @media(max-width: 480px){
+    .desk-svg{
+      display: none;
+    }
+    .mob-svg{
+      display: block;
+      margin-top: 70px;
+    }
+  }
+  .path {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1000;
+    //animation: dash 5s ease-in forwards;
+  }
+  .path_shadow{
+    transition: opacity 0.3s ease;
+    transition-delay: 0.2s;
+    &.active{
+      opacity: 0.2;
+    }
+  }
+  .point_line{
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    &.active{
+      opacity: 1;
+    }
+  }
+  
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .svg-wrap{
+    position: relative;
+    max-width: 100%;
+    margin-top: -256px;
+    svg{
+      position: relative;
+      z-index: 1;
+    }
+  }
+  
+  #start-point{
+    //animation: 4.3s ease-in 0.5s forwards move;
+    offset-path: path('M314.5,645.8C763.2,577.4,948.6,270,1220,110.2');
+    width: 82px;
+    height: 82px;
+    background-color: #f2cf7e;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 25px solid #fff;
+    position: absolute;
+    top: -9px;
+    left: 1.1%;
+    z-index: 2;
+  }
+  @keyframes move {
+    0% {
+      top: 5%;
+      offset-distance: 0%;
+    }
+    25%{
+      top: 3%;
+    }
+    50%{
+      top: 1.5%;
+    }
+    75%{
+      top: 1%;
+    }
+    100% {
+      top: 0%;
+      offset-distance: 100%;
+    }
+  }
+}
+
+@media(max-width: 1280px){
+  .svg-wrap{
+    margin-top: -180px;
+  }
+  #start-point{
+    top: -7%;
+    left: -24.4%;
+  }
+}
+@media(max-width: 1199px){
+  .svg-wrap{
+    margin-top: -156px;
+  }
+  #start-point{
+    top: -9%;
+    left: -29.9%;
+  }
+  .development-block p {
+    margin-bottom: 70px;
+  }
+  .development-block .list{
+    max-width: 100%;
+  }
+}
+@media(max-width: 1024px){
+  #start-point {
+    top: -9%;
+    left: -47.5%;
+    width: 72px;
+    height: 72px;
+    border: 18px solid #fff;
+  }
+}
+@media(max-width: 991px){
+  .svg-wrap {
+    margin-top: -70px;
+  }
+  #start-point {
+    top: -12%;
+    left: -51.4%;
+    width: 62px;
+    height: 62px;
+    border: 16px solid #fff;
+  }
+  .development-block>svg{
+    margin-top: -150px;
+  }
+  .development-block{
+    padding-bottom: 0;
+  }
+  .development-block .list__item svg {
+    margin-right: 14px;
+  }
+  .development-block .list__item{
+    margin-right: 30px;
+  }
+}
+@media(max-width: 767px){
+  #start-point {
+    top: -18%;
+    left: -87.4%;
+    width: 52px;
+    height: 52px;
+    border: 14px solid #fff;
+  }
+  .development-block .list__item {
+    margin-right: 30px;
+    width: 100%;
+  }
+  .development-block>svg {
+    margin-top: -10px;
+  }
+}
+@media(max-width: 480px){
+  .svg-wrap {
+    margin-top: 0px;
+  }
+  .development-block {
+    padding-bottom: 0;
+    padding-top: 49px;
+  }
+  .development-block .title {
+    line-height: 1.34;
+    margin-bottom: 16px;
+  }
+  .development-block p {
+    margin-bottom: 50px;
+  }
+  .development-block .list{
+    margin-bottom: 26px;
+  }
+  .development-block .title.small {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  .development-block .btn {
+    height: 56px;
+    min-width: unset;
+  }
+  .development-block .list__item svg {
+    margin-right: 14px;
+    max-width: 32px;
+    height: 32px;
+  }
+  .development-block .list__item{
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 24px;
+    &:nth-child(1){
+      order: 1;
+    }
+    &:nth-child(2){
+      order: 4;
+    }
+    &:nth-child(3){
+      order: 3;
+    }
+    &:nth-child(4){
+      order: 2;
+    }
+    &:nth-child(5){
+      order: 5;
+    }
+  }
+  .development-block>svg {
+    margin-top: 69px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

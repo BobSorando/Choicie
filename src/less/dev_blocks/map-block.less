@@ -1,0 +1,59 @@
+.map-block{
+  padding-top: 130px;
+  padding-bottom: 156px;
+
+  .map__point{
+    transition: all 0.2s ease;
+    &.active{
+      filter: drop-shadow( 0 0 10px rgb(30 12 81));
+    }
+  }
+  p{
+    color: @gray_60;
+    font-size: 18px;
+  }
+  svg{
+    margin-top: 98px;
+    max-width: 100%;
+    height: auto;
+  }
+  .title{
+    margin-bottom: 26px;
+  }
+}
+
+@media(max-width: 1230px){
+  .map-block {
+    padding-top: 80px;
+    padding-bottom: 84px;
+  }
+}
+@media(max-width: 1199px){
+  .map-block svg{
+    margin-top: 0;
+  }
+}
+@media(max-width: 767px){
+  .map-block p {
+    font-size: 14px;
+  }
+}
+@media(max-width: 480px){
+  .map-block svg{
+    margin-left: -7px;
+    margin-right: -7px;
+    max-width: calc(100% + 14px);
+  }
+  .map-block {
+    padding-top: 45px;
+    padding-bottom: 52px;
+  }
+  .map-block .title{
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .map-block p {
+    font-size: 12px;
+    margin-bottom: 47px;
+  }
+}

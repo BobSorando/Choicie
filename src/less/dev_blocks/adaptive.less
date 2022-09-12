@@ -1,0 +1,87 @@
+@import "config.less";
+
+
+
+@media(max-width: 1199px){
+  .title.big {
+    font-size: 44px;
+    margin-bottom: 30px;
+  }
+  .subtitle{
+    margin-bottom: 30px;
+  }
+  .btn{
+    padding: 0 15px;
+  }
+}
+@media(max-width: 767px){
+  .subtitle{
+    br{
+      display: none;
+    }
+  }
+  .title.big {
+    font-size: 34px;
+    margin-bottom: 30px;
+  }
+  .title, .about-block .content .title{
+    font-size: 28px;
+  }
+}
+@media(max-width: 480px){
+  p.purple{
+    font-size: 14px;
+    display: inline-block;
+    border-bottom: 1px solid rgba(59, 33, 134, 0.1);
+    padding-bottom: 4px;
+  }
+  .logo{
+    display: flex;
+    svg{
+      max-width: 120px;
+      height: 32px;
+    }
+  }
+  .header {
+    padding: 8px 0;
+  }
+  .btn{
+    width: 100%;
+    height: 46px;
+  }
+  .title.big{
+    font-weight: 600;
+    margin-bottom: 16px;
+    font-size: 24px;
+    line-height: 1.33;
+  }
+  .subtitle{
+    font-size: 12px;
+    line-height: 1.67;
+    margin-bottom: 32px;
+  }
+  .suptitle{
+    margin-bottom: 12px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  p{
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 20px;
+  }
+  .suptitle{
+    line-height: 18px;
+  }
+  input{
+    font-size: 12px;
+    padding: 0 60px 0 24px;
+    height: 46px;
+  }
+  .btn{
+    font-size: 14px;
+  }
+  input.purple{
+    background-color: @blue_darc_bg;
+  }
+}

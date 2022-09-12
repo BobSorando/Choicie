@@ -1,0 +1,124 @@
+.manage-block{
+  padding: 121px 0 88px;
+  .suptitle{
+    font-size: 16px;
+    letter-spacing: 0.08em;
+  }
+  .title{
+    margin-bottom: 36px;
+  }
+  p{
+    font-size: 18px;
+  }
+  .row{
+    margin-top: 133px;
+  }
+  .single-tile{
+    padding: 53px 0 0 52px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &.blue{
+      background-color: #E1EFFF;
+    }
+    &.yellow{
+      background-color: #F9F5E6;
+    }
+    &__title{
+      padding-right: 41px;
+      line-height: 1.44;
+      margin-bottom: 26px;
+    }
+    &__text{
+      margin-bottom: 39px;
+      padding-right: 52px;
+      min-height: 112px;
+      line-height: 1.5;
+      color: @accent_black;
+    }
+    svg{
+      position: relative;
+      right: -11px;
+    }
+  }
+}
+
+
+@media(max-width: 1199px){
+  .manage-block .single-tile svg{
+    right: 0;
+  }
+  .manage-block {
+    padding: 100px 0 50px;
+  }
+  .manage-block .row {
+    margin-top: 100px;
+  }
+  .manage-block .single-tile{
+    overflow: hidden;
+  }
+  .manage-block .single-tile .title{
+    font-size: 30px;
+  }
+  .manage-block .single-tile__text{
+    font-size: 16px;
+  }
+}
+@media(max-width: 991px){
+  .manage-block .title {
+    margin-bottom: 24px;
+  }
+  .manage-block .row {
+    margin-top: 50px;
+  }
+  .manage-block .row>div{
+    &:not(:last-child){
+      margin-bottom: 30px;
+    }
+  }
+}
+@media(max-width: 480px){
+  .manage-block .suptitle {
+    font-size: 12px;
+  } 
+  .manage-block {
+    padding: 60px 0 0px;
+  }
+  
+  .manage-block .title {
+    margin-bottom: 12px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .manage-block p {
+    font-size: 12px;
+  }
+  .manage-block .row {
+    margin-top: 52px;
+  }
+  .manage-block .single-tile{
+    padding: 21px 0 0 16px;
+  }
+  .manage-block .single-tile .title {
+    font-size: 24px;
+    padding-right: 30px;
+    line-height: 1.34;
+    margin-bottom: 15px;
+  }
+  .manage-block .row>div:not(:last-child) {
+    margin-bottom: 25px;
+  }
+  .manage-block .single-tile__text {
+    margin-bottom: 24px;
+    padding-right: 15px;
+    min-height: unset;
+    line-height: 1.7;
+    font-size: 12px;
+  }
+  .manage-block .single-tile svg {
+    right: 0;
+    max-width: 87%;
+    height: auto;
+    left: 18%;
+  }
+}

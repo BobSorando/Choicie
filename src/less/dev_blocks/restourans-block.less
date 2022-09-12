@@ -1,0 +1,90 @@
+.restourans-block{
+  padding: 39px 0 33px;
+  .title{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    margin-bottom: 0;
+  }
+  .list{
+    padding-left: 56px;
+    justify-content: space-between;
+    padding-top: 2px;
+  }
+}
+
+@media(max-width: 1199px){
+  .restourans-block .list{
+    padding: 0;
+  }
+}
+@media(max-width: 991px){
+  .restourans-block{
+    .title{
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  }
+}
+@media(max-width: 767px){
+  .restourans-block .list{
+    justify-content: center;
+    &__item{
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 24px;
+    }
+  }
+  .restourans-block {
+    padding: 39px 0 9px;
+  }
+}
+@media(max-width: 576px){
+  .restourans-block .list__item {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 24px;
+    max-width: 33%;
+  }
+}
+@media(max-width: 480px){
+  .restourans-block {
+    padding: 33px 0 0px;
+  }
+  .restourans-block .list{
+    justify-content: space-between;
+    &__item{
+      margin: 0;
+      max-width: unset;
+      width: auto;
+      img{
+        height: 24px;
+      }
+      &:nth-child(1){
+        order: 1;
+      }
+      &:nth-child(2){
+        order: 2;
+      }
+      &:nth-child(3){
+        order: 4;
+        width: 50%;
+        text-align: center;
+      }
+      &:nth-child(4){
+        order: 3;
+      }
+      &:nth-child(5){
+        order: 5;
+        width: 50%;
+        text-align: center;
+      }
+    }
+  }
+  .restourans-block .title {
+    margin-bottom: 48px;
+  }
+  .restourans-block .list__item {
+    margin-bottom: 18px;
+  }
+}

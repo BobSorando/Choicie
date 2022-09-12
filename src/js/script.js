@@ -12,10 +12,41 @@ $(document).ready(function(){
 		$('.mob-menu').slideToggle();
 	})
 
-	$('body').on('click', '.mob-menu a, .header__menu a', function (e) {
+	if($('.desk-svg').length > 0){
+		var path = document.querySelector('.path');
+		var start_point = document.getElementById('start-point');
+	
+		$(window).scroll(function(){
+			if ($(window).scrollTop() > $('.development-block').offset().top){
+				var scrollTop = $(window).scrollTop();
+				var start_block = $('.development-block').offset().top;
+				var height = $('.development-block').outerHeight();
+
+				var path_distance = ((scrollTop - start_block) / height * 100) * 4.6;
+				if(path_distance > 100){
+					path_distance = 100;
+				}
+				var svg_path_distance = 1000 - path_distance * 9.9;
+				if(svg_path_distance < 40){
+					svg_path_distance = 0;
+				}
+				start_point.style.setProperty('offset-distance', path_distance+'%');
+				path.style.setProperty('stroke-dashoffset', svg_path_distance);
+				if(path_distance == 100 && svg_path_distance == 0){
+					$('.path_shadow').addClass('active');
+					$('.point_line').addClass('active');
+				}else{
+					$('.path_shadow').removeClass('active');
+					$('.point_line').removeClass('active');
+				}
+			} 
+		});
+	}
+
+	$('body').on('click', '.mob-menu a, .menu a', function (e) {
 		e.preventDefault();
 		
-		var selector = $(this).attr('href'); /* #about - строка */
+		var selector = $(this).attr('href');
 		console.log(selector);
 		var h = $(selector); /* jquery-элемент заголовка */
 		
@@ -27,22 +58,23 @@ $(document).ready(function(){
 			body.toggleClass('menu-open');
 			$('.mob-menu').slideToggle();
 		}
-});
+	});
 
-	var mapPoint_array = $.makeArray($('.map_point'));
-	setInterval(function(){
-		var item = mapPoint_array[Math.floor(Math.random()*mapPoint_array.length)];
-		item.classList.add('active');
-		setTimeout(function(){
-			item.classList.remove('active');
-		}, 2000)
-	}, 5000);
+	if($('.map').length > 0){
+		var mapPoints_array = $.makeArray($('.map__point'));
+		setInterval(function(){
+			var point = mapPoints_array[Math.floor(Math.random()*mapPoints_array.length)];
+			point.classList.add('active');
+			setTimeout(function(){
+				point.classList.remove('active');
+			}, 2000)
+		}, 5000);
+	}
 
 	$('form input[type="submit"]').on('click', function(e){
 		e.preventDefault();
 		var formID = $(this).parents('form').attr('id');
 		var formNm = $('#' + formID);
-		console.log(formNm);
 		var inputs = $(this).parents('form').find('input[required]');
 		var error = 0;
 		inputs.each(function(){
@@ -54,9 +86,10 @@ $(document).ready(function(){
 		if(!error){
 			
 			var fd = new FormData(formNm[0]);
+			console.log(fd);
 			$.ajax({
 					type: "POST",
-					url: '/mail.php',
+					url: 'mail.php',
 					data: fd,
 					processData: false,
 					contentType: false, 
@@ -66,16 +99,54 @@ $(document).ready(function(){
 					},
 					error: function (jqXHR, text, error) {
 							
-							alert($(formNm).html(error));         
+							alert(formNm.html(error));         
 					}
 			});
 		}
 	})
 
-	if($(window).width() > 767){
-		AOS.init({
-			once: true, // whether animation should happen only once - while scrolling down
-		});
+
+	//Scroll animation function
+
+	const scrollElements = document.querySelectorAll(".js-scroll");
+
+	const elementInView = (el, dividend = 1) => {
+		const elementTop = el.getBoundingClientRect().top;
+
+		return (
+			elementTop <=
+			(window.innerHeight || document.documentElement.clientHeight) / dividend
+		);
+	};
+
+	const elementOutofView = (el) => {
+		const elementTop = el.getBoundingClientRect().top;
+
+		return (
+			elementTop > (window.innerHeight || document.documentElement.clientHeight)
+		);
+	};
+
+	const displayScrollElement = (element) => {
+		element.classList.add("scrolled");
+	};
+
+	const hideScrollElement = (element) => {
+		element.classList.remove("scrolled");
+	};
+
+	const handleScrollAnimation = () => {
+		scrollElements.forEach((el) => {
+			if (elementInView(el, 1.25)) {
+				displayScrollElement(el);
+			} else if (elementOutofView(el)) {
+				hideScrollElement(el)
+			}
+		})
 	}
+
+	window.addEventListener("scroll", () => { 
+		handleScrollAnimation();
+	});
 
 })
